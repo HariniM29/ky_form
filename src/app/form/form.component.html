@@ -1,0 +1,94 @@
+
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          table {
+            width: 80%;
+            border-collapse: collapse;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+          }
+          td {
+            padding-right: 150px;
+            background-color: #c2d6e9;
+          }
+          th {
+            background-color: #ffff;
+          }
+        </style>
+      </head>
+      <body>
+
+      <form (ngSubmit)="submitForm()" #form="ngForm">
+        <table >
+          <thead>
+            <tr>
+              <th><img src="..\assets\icon2.jpg" alt="Image" style="width: 160px; height: 40px;"></th>
+              <th>Daily Weight & Go no Go Monitoring Report and First/Last Part Inspection Report</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Date</td>
+              <td ><input type="date" id="date" name="date" [(ngModel)]="formData.date" required class="form-control"></td>
+            </tr>
+            <!-- <td mat-cell *matCellDef="let element" mat-cell-selection> {{element[column]}} </td> -->
+            <tr>
+              <td>Product Name</td>
+              <td><input type="text" id="productName" name="productName" [(ngModel)]="formData.productName" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Batch No:</td>
+              <td><input type="text" id="batchNo" name="batchNo" [(ngModel)]="formData.batchNo" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>M/C No</td>
+              <td><input type="text" id="machineNo" name="machineNo" [(ngModel)]="formData.machineNo" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>CY.T.</td>
+              <td><input type="text" id="cyt" name="cyt" [(ngModel)]="formData.cyt" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Part weight</td>
+              <td><input type="number" id="partWeight" name="partWeight" [(ngModel)]="formData.partWeight" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Resin B .No</td>
+              <td><input type="text" id="resinBatchNo" name="resinBatchNo" [(ngModel)]="formData.resinBatchNo" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Shift Incharge</td>
+              <td><input type="text" id="shiftIncharge" name="shiftIncharge" [(ngModel)]="formData.shiftIncharge" required class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Time/Box Number</td>
+              <td><input type="text" id="timeBoxNumber" name="timeBoxNumber" [(ngModel)]="formData.timeBoxNumber" required class="form-control"></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+      </form>
+
+
+      <table >
+        <thead>
+          <tr>
+            <th>Product Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let productName of columnData">
+            <td>{{ productName }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      </body>
+      </html>
